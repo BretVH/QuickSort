@@ -12,8 +12,8 @@
 
 using namespace std;
 
-/*The following functions except a main are some utilities*/
-// array initialization with random numbers. It generate an array with a random order
+//The following functions, except main, are utilities
+// array initialization with random numbers. It generates an array with a random order
 void initArray(vector<int> &array, int randMax) {
 	int size = array.size();
 
@@ -33,7 +33,7 @@ void initArray(vector<int> &array, int randMax) {
 	}
 }
 
-// array printing in to console as well as into a file
+// array printing to console as well as into a file
 void printArray(vector<int> &array, char arrayName[], ofstream &myfile) {
 	int size = array.size();
 
@@ -87,7 +87,6 @@ int main(int argc, char* argv[]) {
 
 
 	// Open a file to write your results
-
 	ofstream myfile(filename);
 	if (!myfile.is_open()) {
 		cout << "Unable to open file: Terminate program";
@@ -95,13 +94,13 @@ int main(int argc, char* argv[]) {
 	}
 
 
-	stringstream ss; //This is a string stream variable will be used for a parameter
+	stringstream ss; //This string stream variable will be used as a parameter
 	// Write the program name
 	ss << "Program 4: Improved Quick Sort Algorithms : output = " << filename << "  ssz=" << ssz << endl;
 	writeOutput(myfile, ss.str());
 	ss.str(""); //reset the string stream for reuse
 
-	/*Check the the correctness of your improved function*/
+	//Check correctness of function
 	// array generation     
 	int size = 30;
 	srand(1); // give random seed as 1
@@ -112,7 +111,7 @@ int main(int argc, char* argv[]) {
 	vector<int> copy1 = original;
 	vector<int> copy2 = original;
 
-	// Check if your quick median of 3 is correct
+	// Check if quick median of 3 is correct
 	writeOutput(myfile, "\nBefore quick median of 3 sort");
 	printArray(original, "original", myfile);
 	quicksortMedianOf3(original);
@@ -123,7 +122,7 @@ int main(int argc, char* argv[]) {
 	ss.str(""); //reset the string stream for reuse
 
 
-	// Check if your quick insertion is correct
+	// Check if quick insertion is correct
 	writeOutput(myfile, "\nBefore quick insertion sort");
 	printArray(copy1, "copy1", myfile);
 	quicksortInsertion(copy1, 5);
@@ -133,7 +132,7 @@ int main(int argc, char* argv[]) {
 	writeOutput(myfile, ss.str());
 	ss.str(""); //reset the string stream for reuse
 
-	// Check if your quick insertion median of 3 is correct  
+	// Check if quick insertion median of 3 is correct  
 	writeOutput(myfile, "\nBefore quick insertion median 3 sort");
 	printArray(copy2, "copy2", myfile);
 	quicksortM3Insertion(copy2, 5);
